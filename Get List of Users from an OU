@@ -1,0 +1,5 @@
+Get List of Users from an OU
+
+$OUpath = 'OU absolute path'
+$ExportPath = 'C:\Users\alias\Desktop\users.csv'
+Get-ADUser -Filter * -SearchBase $OUpath | Select-object DistinguishedName,Name,UserPrincipalName,SamAccountName | Export-Csv -NoType $ExportPath
