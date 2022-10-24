@@ -1,0 +1,4 @@
+Add Single users to Shared Mailbox
+
+Add-mailboxpermission -Identity  Shared.Mailbix@domain.com  -user user@domain.com  -AutoMapping $True -AccessRights FullAccess -InheritanceType All
+Add-RecipientPermission -Identity  Shared.Mailbix@domain.com -Trustee "user@domain.com" -AccessRights SendAs -Confirm:$false
