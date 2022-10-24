@@ -1,5 +1,38 @@
 #Add Multiple users to Shared Mailbox
 
-Import-Csv -Path 'C:\Users\alias\Desktop\Mailbox.csv' | ForEach-Object {Add-mailboxpermission -Identity $_.mailbox  -user user@domain.com  -AutoMapping $True -AccessRights FullAccess -InheritanceType All}
+This cmdlet is available in on-premises Exchange and in the cloud-based service. Some parameters and settings may be exclusive to one environment or the other.
+Use the Add-MailboxPermission cmdlet to add permissions to a mailbox or to an Exchange Server 2016, Exchange Server 2019, or Exchange Online mail user.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Add-MailboxPermission
+   [-Identity] <MailboxIdParameter>
+   -AccessRights <MailboxRights[]>
+   -User <SecurityPrincipalIdParameter>
+   [-AutoMapping <Boolean>]
+   [-Confirm]
+   [-Deny]
+   [-DomainController <Fqdn>]
+   [-GroupMailbox]
+   [-IgnoreDefaultScope]
+   [-InheritanceType <ActiveDirectorySecurityInheritance>]
+   [-WhatIf]
+   [<CommonParameters>]
+   
+   ----------------------------------------------------------------------------
+   Add-MailboxPermission
+   [-Identity] <MailboxIdParameter>
+   -Owner <SecurityPrincipalIdParameter>
+   [-Confirm]
+   [-DomainController <Fqdn>]
+   [-GroupMailbox]
+   [-IgnoreDefaultScope]
+   [-WhatIf]
+   [<CommonParameters>]
+   
+   --------------------------------------------------------------------------------
 
+
+
+
+
+Import-Csv -Path 'C:\Users\alias\Desktop\Mailbox.csv' | ForEach-Object {Add-mailboxpermission -Identity $_.mailbox  -user user@domain.com  -AutoMapping $True -AccessRights FullAccess -InheritanceType All}
 Import-Csv -Path 'C:\Users\alias\Desktop\Mailbox.csv' | ForEach-Object {Add-RecipientPermission -Identity $_.mailbox -Trustee "user@domain.com" -AccessRights SendAs -Confirm:$false}
