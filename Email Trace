@@ -1,0 +1,2 @@
+##Getting Email Trace##
+Get-MessageTraceDetail -MessageTraceId Trace ID   -SenderAddress user@domain.com -RecipientAddress user@domain.com | FL | > C:\tmp\mailtrace.csv
